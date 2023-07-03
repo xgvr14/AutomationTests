@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.seleniumhq.jetty9.server.HttpChannelState;
 
 public class LoginTests extends TestBase {
     @Test
@@ -15,6 +17,7 @@ public class LoginTests extends TestBase {
         //2.Enter a valid username
         WebElement usernameField = driver.findElement(By.id("username"));
         usernameField.sendKeys("tomsmith");
+
         //3.Enter a valid password
         WebElement passwordField = driver.findElement(By.name("password"));
         passwordField.sendKeys("SuperSecretPassword!");
