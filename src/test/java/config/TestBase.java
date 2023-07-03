@@ -18,7 +18,7 @@ public class TestBase {
         wait = new WebDriverWait(driver, 10L);
     }
 
-  /*  @AfterEach
+    @AfterEach
     public void destroyDriver() {
         if (driver != null) {
             driver.quit();
@@ -28,5 +28,5 @@ public class TestBase {
 
         driver = null;
         wait = null;
-    } */
+    }
 }

@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.LoginPage;
 import config.TestBase;
 
 import org.junit.jupiter.api.Assertions;
@@ -10,23 +11,26 @@ import org.openqa.selenium.interactions.Actions;
 import org.seleniumhq.jetty9.server.HttpChannelState;
 
 public class LoginTests extends TestBase {
+    private LoginPage loginPage;
     @Test
-    public void loginTest(){
+    public void loginTest() {
+        loginPage = new LoginPage(driver);
+
         //1.Launch app
         driver.navigate().to("https://the-internet.herokuapp.com/login");
+
         //2.Enter a valid username
-        WebElement usernameField = driver.findElement(By.id("username"));
-        usernameField.sendKeys("tomsmith");
+        loginPage.getUsernameField().sendKeys("tomsmith");
 
         //3.Enter a valid password
-        WebElement passwordField = driver.findElement(By.name("password"));
-        passwordField.sendKeys("SuperSecretPassword!");
+        loginPage.getPasswordField().sendKeys("SuperSecretPassword!");
+
         //4.Click on login button
-        WebElement loginButton = driver.findElement(By.className("radius"));
-        loginButton.click();
+        loginPage.getLoginButton().click();
+
         //Expected: the user is successfully logged in
-        WebElement message = driver.findElement(By.id("flash"));
+
         Assertions.assertEquals("You logged into a secure area!\n" +
-                "×",message.getText());
+                "×", loginPage.getMessage().getText());
     }
 }
