@@ -11,14 +11,14 @@ public class TestBase {
 
     @BeforeEach
     public void createDriver() {
-     //   System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+     //  System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
          WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10L);
     }
 
-    @AfterEach
+  /*  @AfterEach
     public void destroyDriver() {
         if (driver != null) {
             driver.quit();
@@ -28,5 +28,5 @@ public class TestBase {
 
         driver = null;
         wait = null;
-    }
+    } */
 }
