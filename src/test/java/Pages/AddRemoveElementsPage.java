@@ -10,9 +10,11 @@ public class AddRemoveElementsPage extends TestBase {
     @FindBy (xpath = "//button[text()='Add Element']")
     private WebElement buttonAdd;
 
-    @FindBy (xpath = "//button[text() = 'Delete']")
+    @FindBy (xpath = "//*[@id='elements']/button")
     private WebElement deleteButton;
 
+    @FindBy(xpath = "//div[@id='elements']/button[last()]")
+    private WebElement addedElement;
     public AddRemoveElementsPage (WebDriver driver){
         PageFactory.initElements(driver,this);
     }
@@ -22,5 +24,8 @@ public class AddRemoveElementsPage extends TestBase {
     }
     public WebElement getDeleteButton(){
         return deleteButton;
+    }
+    public WebElement getAddedElement(){
+        return addedElement;
     }
 }
